@@ -2,14 +2,14 @@ require 'faker'
 
 # Create 15 topics
 topics = []
-15.times do
+200.times do
   topics << Topic.create(
     name: Faker::Lorem.words(rand(1..10)).join(" "), 
     description: Faker::Lorem.paragraph(rand(1..4))
   )
 end
 
-rand(4..10).times do
+rand(4..30).times do
   password = Faker::Lorem.characters(10)
   u = User.new(
     name: Faker::Name.name, 
@@ -19,7 +19,7 @@ rand(4..10).times do
   u.skip_confirmation!
   u.save
 
-  rand(5..12).times do
+  rand(5..30).times do
     topic = topics.first # getting the first topic here
     p = u.posts.create(
       title: Faker::Lorem.words(rand(1..10)).join(" "), 

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20130924232344) do
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
     t.integer  "topic_id"
-    t.string   "image"
+    t.string   "images"
   end
 
   add_index "posts", ["topic_id"], :name => "index_posts_on_topic_id"
